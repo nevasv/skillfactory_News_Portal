@@ -20,22 +20,17 @@ class Author(models.Model):
     #    -суммарный рейтинг всех комментариев автора;
     #    -суммарный рейтинг всех комментариев к статьям автора.
     def update_rating(self):
-        postRat = self.post_set.aggrigate(postRating=Sum('rating'))
-        pRat = 0
-        pRat += postRat.get('postRating')
+        postR = self.post_set.all().aggregate(postRating=Sum('rating'))
+        p_R = 0
+        p_R += postR.get('postRating')
 
-        commenttRat = self.authorUser.comment_set.aggrigate(postRating=Sum('rating'))
-        cRat = 0
-        cRat += postRat.get('commentRating')
+        commentR = self.authorUser.comment_set.all().aggregate(commentRating=Sum('rating'))
+        c_R = 0
+        c_R += commentR.get('commentRating')
 
-        self.ratingAuthor = pRat * 3 + cRat
+        self.ratingAuthor = p_R * 3 + c_R
         self.save()
 
-
-# Модель Category
-# Категории новостей/статей — темы, которые они отражают (спорт, политика, образование и т. д.).
-# Имеет единственное поле: название категории.
-#  - <name> Поле должно быть уникальным (в определении поля необходимо написать параметр unique = True).
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
 
@@ -53,7 +48,7 @@ class Category(models.Model):
 #   - <rating>        рейтинг статьи/новости.
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    categoryFild = models.CharField(max_length=2, choices=CATEGORY_CHOISES, default=ARTICLE)
+    categoryType = models.CharField(max_length=2, choices=CATEGORY_CHOISES, default=ARTICLE)
     dataCreations = models.DateTimeField(auto_now_add=True)
     postCategory = models.ManyToManyField(Category, through='PostCategory')
     title = models.CharField(max_length=128)
