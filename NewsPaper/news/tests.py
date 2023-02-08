@@ -1,3 +1,10 @@
-from django.test import TestCase
+import unittest
+from news.models import *
 
-# Create your tests here.
+
+class TestUpdateR(unittest, TestCase):
+    def test_store(self, id=1):
+        a1 = Author.objects.get(id)
+        pR1 = a1.ratingAuthor
+        ps = Post
+        Post.objects.get(id).like()
