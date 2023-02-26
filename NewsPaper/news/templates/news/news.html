@@ -1,0 +1,124 @@
+{% extends 'news/default.html' %}
+{% load static %}
+
+{% block MyCss %}
+<title> {{ news.title }}</title>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+{% block MyContent %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar">a</span>
+          <span class="icon-bar">a</span>
+          <span class="icon-bar">a</span>
+        </button>
+        <a class="navbar-brand" href="#">SkillFactory<i class="fa fa-circle"></i>Fullstack</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Домой</a></li>
+          <li><a href="#">Про нас</a></li>
+          <li><a href="#">Сервсиы</a></li>
+          <li><a href="#">Работы</a></li>
+          <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1>Страница списка новостей</h1>
+          <h2>Наши рейтинги:</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container w">
+    <div class="row centered">
+      <div class="col-lg-4">
+        <i class="fa fa-heart"></i>
+        <h4>Лучший пост, автор поста и его рейтинг</h4>
+        <p>post1</p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+        <h4>Лучший комментатор новостей и его рейтинг</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-reply" aria-hidden="true"></i>
+        <h4>Последний комментарий на сайте</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container wb">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>Список новостей по заданию D3.6</h4>
+        <ul>
+          {%  for postn in newlist %}
+           <li>{{ postn }}</li>
+          {% endfor %}
+        </ul>
+        <p><br><br></p>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10 col-lg-offset-1">
+        <img src="img/munter.png" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  <div id="lg">
+    <div class="container">
+      <div class="row centered">
+        <h4>Обратная связь</h4>
+        <div class="col-lg-2 col-lg-offset-1">
+          <img src="img/c01.gif" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="img/c02.gif" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="img/c03.gif" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="img/c04.gif" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="img/c05.gif" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="r">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h4>Курс SkillFactory - Fullstack разработчик на Python</h4>
+          <p>SkillFactory — oнлайн-школа IT-профессий. Онлайн-курсы по Data Science, аналитике, программированию и менеджменту © 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="f">
+    <div class="container">
+      <div class="row centered">
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-vk"></i></a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 NEWS = 'NW'
 ARTICLE = 'AR'
 CATEGORY_CHOISES = (
-    (NEWS, 'Новость'),
-    (ARTICLE, 'Статья'),
+    (NEWS, 'News'),
+    (ARTICLE, 'Article'),
 )
