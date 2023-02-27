@@ -2,7 +2,9 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 # from django.views.generic.edit import FormView
+from  django.views.generic.base import View
 from .models import *
+
 
 
 class AuthorsPage(ListView):
@@ -11,10 +13,10 @@ class AuthorsPage(ListView):
     template_name = 'news/authors.html'
 
 
-class PostDetail(DetailView):
-    model = Post
-    context_object_name = 'Posts'
-    template_name = 'news/posts.html'
+class PostDetail(View):
+    def get(self, request, pk):
+        ps = Post.objects.get(id=pk)
+        return render(request, "news/posts.html", {'ps':ps})
 
 
 def news_page_list(request):
