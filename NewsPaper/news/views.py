@@ -1,4 +1,4 @@
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 # from django.views.generic.edit import FormView
@@ -11,7 +11,7 @@ class AuthorsPage(ListView):
     template_name = 'news/authors.html'
 
 
-class Post(DetailView):
+class PostDetail(DetailView):
     model = Post
     context_object_name = 'Posts'
     template_name = 'news/posts.html'
@@ -19,9 +19,10 @@ class Post(DetailView):
 
 def news_page_list(request):
     """ Представление для вывода страницы с новостями по заданию D3.6 """
-   # newslist = Post.objects.all().order_by('-rating')[:6]  {'newslist': newslist}
 
-    return render(request, 'news/news.html')
+    newslist = Post.objects.all().order_by('-rating')[:6]
+
+    return render(request, 'news/news.html', {'newslist': newslist})
 
 
 # class Myform(FormView):

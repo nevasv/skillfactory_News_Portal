@@ -14,9 +14,7 @@
     <div class="container">
       <div class="navbar-header">
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar">a</span>
-          <span class="icon-bar">a</span>
-          <span class="icon-bar">a</span>
+          <span class="icon-bar">Меню</span>
         </button>
         <a class="navbar-brand" href="#">SkillFactory<i class="fa fa-circle"></i>Fullstack</a>
       </div>
@@ -51,12 +49,13 @@
       <div class="col-lg-4">
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
         <h4>Лучший комментатор новостей и его рейтинг</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <p> rr  </p>
       </div>
       <div class="col-lg-4">
         <i class="fa fa-reply" aria-hidden="true"></i>
         <h4>Последний комментарий на сайте</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <p> rr  </p>
+        </p>
       </div>
     </div>
   </div>
@@ -66,11 +65,17 @@
       <br><br>
       <div class="col-lg-8 col-lg-offset-2">
         <h4>Список новостей по заданию D3.6</h4>
-        <ul>
-          {%  for postn in newlist %}
-           <li>{{ postn }}</li>
-          {% endfor %}
-        </ul>
+        {%  for post_n in newslist %}
+           <li>{{ post_n }}</li>
+            {% endfor %}
+
+
+
+
+
+
+
+
         <p><br><br></p>
       </div>
       <div class="col-lg-2"></div>
