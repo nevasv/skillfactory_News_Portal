@@ -6,7 +6,10 @@
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.2.min.js"
+  integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+  crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
 
@@ -65,7 +68,7 @@
       <br><br>
       <div class="col-lg-8 col-lg-offset-2">
         <h4>Список новостей по заданию D3.6</h4>
-        <table border="1" align="left">
+        <table >
           <tr>
             <td>ID поста</td>
             <td>Дата создания</td>
@@ -81,41 +84,34 @@
             <td>{{ post_n.categoryType }}</td>
             <td>{{ post_n.author }}</td>
             <td>{{ post_n.rating }}</td>
-            <td><a href=../post/{{ post_n.pk }}>{{ post_n.title }}</a></td>
+            <td class="leftAligned"><a href=../post/{{ post_n.pk }}>{{ post_n.title }}</a></td>
             </tr>
               {% endfor %}
         </table>
         <p><br><br></p>
       </div>
-      <div class="col-lg-2"></div>
-      <div class="col-lg-10 col-lg-offset-1">
-        <img src="img/munter.png" alt="" class="img-responsive">
-      </div>
-    </div>
   </div>
 
+<hr />
   <div id="lg">
     <div class="container">
       <div class="row centered">
-        <h4>Обратная связь</h4>
         <div class="col-lg-2 col-lg-offset-1">
-          <img src="img/c01.gif" alt="">
+          <img src=" {% static 'img/c01.png' %}" alt="">
         </div>
         <div class="col-lg-2">
-          <img src="img/c02.gif" alt="">
+          <img src=" {% static 'img/c02.png' %}" alt="">
         </div>
         <div class="col-lg-2">
-          <img src="img/c03.gif" alt="">
+          <img src=" {% static 'img/c03.png' %}" alt="">
         </div>
         <div class="col-lg-2">
-          <img src="img/c04.gif" alt="">
-        </div>
-        <div class="col-lg-2">
-          <img src="img/c05.gif" alt="">
+          <img src=" {% static 'img/c04.jpg' %}" alt="">
         </div>
       </div>
     </div>
   </div>
+    <br><br>
   <div id="r">
     <div class="container">
       <div class="row centered">

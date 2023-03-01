@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from  django.views.generic.base import View
 from .models import *
 
+bad_names = ['incidents', 'Дурак', 'Гад']
 
 
 class AuthorsPage(ListView):
