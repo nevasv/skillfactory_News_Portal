@@ -1,0 +1,137 @@
+{% extends 'news/default.html' %}
+{% load static %}
+
+{% block MyCss %}
+<title> {{ news.title }}</title>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+{% block MyContent %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapseMenu">
+          <span class="icon-bar">Меню</span>
+        </button>
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">SkillFactory<i class="fa fa-circle"></i>Fullstack</a>
+      </div>
+      <div class="collapse" id="collapseMenu" >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://apps.skillfactory.ru/" target="_blank">Учебная Платформа</a></li>
+          <li><a href="http://127.0.0.1:8000/authors/">Авторы</a></li>
+          <li><a href="http://127.0.0.1:8000/">На Глаыную</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1>Страница списка новостей</h1>
+          <h2>Наши рейтинги:</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container w">
+    <div class="row centered">
+      <div class="col-lg-4">
+        <i class="fa fa-heart"></i>
+        <h4>Лучший пост, автор поста и его рейтинг</h4>
+        <p>post1</p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+        <h4>Лучший комментатор новостей и его рейтинг</h4>
+        <p> rr  </p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-reply" aria-hidden="true"></i>
+        <h4>Последний комментарий на сайте</h4>
+        <p> rr  </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container wb">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-6">
+        <h4>Публикация № {{ ps.pk }}</h4>
+          <ul>
+              <li align="left">Дата создания:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ ps.dataCreations }}</li>
+              <li align="left">Категория поста:&nbsp;&nbsp;&nbsp;&nbsp;{{ ps.categoryType }}</li>
+              <li align="left">Автор поста:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ ps.author }}</li>
+              <li align="left">Рейтинг поста:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ ps.rating }}</li>
+
+          </ul>
+        <p><br><br></p>
+      </div>
+      <div class="col-lg-6">
+        <h4>Заголовок поста</h4>
+          <ul>
+              <h6>{{ ps.title }}</h6>
+
+          </ul>
+        <p><br><br></p>
+      </div>
+
+      <div class="col-lg-2"></div>
+      <h3>Содержание публикации</h3>
+      <div class="col-lg-10 col-lg-offset-1">
+        <p >{{ ps.text }}</p>
+      </div>
+    </div>
+  </div>
+<br><br>
+<hr />
+  <div id="lg">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-2 col-lg-offset-1">
+          <img src=" {% static 'img/c01.png' %}" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src=" {% static 'img/c02.png' %}" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src=" {% static 'img/c03.png' %}" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src=" {% static 'img/c04.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src=" {% static 'img/c05.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+  <div id="r">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h4>Курс SkillFactory - Fullstack разработчик на Python</h4>
+          <p>SkillFactory — oнлайн-школа IT-профессий. Онлайн-курсы по Data Science, аналитике, программированию и менеджменту © 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="f">
+    <div class="container">
+      <div class="row centered">
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-vk"></i></a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
