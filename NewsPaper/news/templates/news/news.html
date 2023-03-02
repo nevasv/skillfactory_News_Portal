@@ -80,11 +80,11 @@
               {% for post_n in newslist %}
           <tr>
             <td>{{ post_n.pk }}</td>
-            <td>{{ post_n.dataCreations }}</td>
+            <td>{{ post_n.dataCreations|date:"d M Y"}}</td>
             <td>{{ post_n.categoryType }}</td>
             <td>{{ post_n.author }}</td>
             <td>{{ post_n.rating }}</td>
-            <td class="leftAligned"><a href=../post/{{ post_n.pk }}>{{ post_n.title }}</a></td>
+            <td><a href=../post/{{ post_n.pk }}>{{ post_n.title }}</a></td>
             </tr>
               {% endfor %}
         </table>
