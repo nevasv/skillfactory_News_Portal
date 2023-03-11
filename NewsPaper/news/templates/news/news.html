@@ -15,7 +15,7 @@
 
 {% block MyContent %}
 
-{% get_posts as posts_list%}
+{% get_posts as posts_list %}
 {% get_latest_post as latest_post %}
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -72,7 +72,7 @@
         <h4>Последний пост на сайте</h4>
         <p>Последний пост № {{ latest_post.pk }} <br> опубликован: {{ latest_post.dataCreations }} </p>
         <h4>Заголовок</h4>
-        <p>{{ latest_post.title }}</p>
+        <p>{{ latest_post.title }}</p>ккк
         <h4> Содержание поста :</h4>
         {{ latest_post.text }}
         </p>
