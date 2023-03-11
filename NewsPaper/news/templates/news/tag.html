@@ -1,0 +1,4 @@
+         {% for i in comments3 %}
+          <li> Комментарий к статье №{{i.pk}} Автор: {{ i.commentPost.author }}  рейтинг = {{i.rating}} <br>
+              Заголовок: <h5> {{ i.commentPost.title }} </h5> </li>
+         {% endfor %}

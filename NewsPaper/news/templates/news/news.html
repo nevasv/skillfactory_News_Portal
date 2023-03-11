@@ -1,6 +1,6 @@
 {% extends 'news/default.html' %}
 {% load static %}
-
+{% load news_tags %}
 {% block MyCss %}
 <title> {{ news.title }}</title>
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -14,6 +14,9 @@
 {% endblock %}
 
 {% block MyContent %}
+
+{% get_posts as posts_list%}
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -24,35 +27,43 @@
       </div>
       <div class="collapse" id="collapseMenu" >
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://apps.skillfactory.ru/" target="_blank">Учебная Платформа</a></li>
-          <li><a href=../authors/>Авторы</a></li>
-          <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li><a href="https://apps.skillfactory.ru/" style="color: #999" target="_blank">Учебная Платформа</a></li>
+          <li><a href='../authors/' style="color: #999" target="_blank" >Авторы</a></li>
+          <li><a href="#" style="color: #999"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
         </ul>
       </div>
     </div>
 </div>
-  <div id="headerwrap">
+
+</div>
     <div class="container">
       <div class="row centered">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-12 col-lg-offset-2">
           <h1>Страница списка новостей</h1>
           <h2>Наши рейтинги: </h2>
         </div>
       </div>
     </div>
-  </div>
+
   <div class="container w">
     <div class="row centered">
       <div class="col-lg-4">
         <i class="fa fa-heart"></i>
-        <h4>Лучший автор новостей и его рейтинг</h4>
-        <p><script> $(document).ready(function(){alert('Ваша версия jQuery ' + jQuery.fn.jquery);});
-        </script></p>
+        <h4>Лучшие авторы новостей и рейтинг их статьи </h4>
+         <p> {% for i in posts_list %}
+          <a> {{ i.author }} рейтинг = {{i.rating}}</a> <br>
+            {% endfor %}
+
+        </p>
+        <p>
+          (реализация пользовательского тега)
+        </p>
       </div>
       <div class="col-lg-4">
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
-        <h4>Лучший комментатор новостей и его рейтинг</h4>
-        <p> rr  </p>
+        <h4>Лучшие комментарии и их рейтинги</h4>
+        {% show_comments %}
+        <a>(включающие теги inclusion_tag)</a>
       </div>
       <div class="col-lg-4">
         <i class="fa fa-reply" aria-hidden="true"></i>
@@ -66,7 +77,7 @@
   <div class="container wb">
     <div class="row centered">
       <br><br>
-      <div class="col-lg-8 col-lg-offset-2">
+      <div class="col-lg-12 col-lg-offset-2">
         <h4>Список новостей по заданию D3.6</h4>
         <table >
           <tr>
@@ -96,16 +107,16 @@
   <div id="lg">
     <div class="container">
       <div class="row centered">
-        <div class="col-lg-2 col-lg-offset-1">
+        <div class="col-lg-3 col-lg-offset-1">
           <img src=" {% static 'img/c01.png' %}" alt="">
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <img src=" {% static 'img/c02.png' %}" alt="">
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <img src=" {% static 'img/c03.png' %}" alt="">
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <img src=" {% static 'img/c04.jpg' %}" alt="">
         </div>
       </div>
@@ -115,7 +126,7 @@
   <div id="r">
     <div class="container">
       <div class="row centered">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-12 col-lg-offset-2">
           <h4>Курс SkillFactory - Fullstack разработчик на Python</h4>
           <p>SkillFactory — oнлайн-школа IT-профессий. Онлайн-курсы по Data Science, аналитике, программированию и менеджменту © 2023</p>
         </div>
