@@ -16,6 +16,7 @@
 {% block MyContent %}
 
 {% get_posts as posts_list%}
+{% get_latest_post as latest_post %}
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -23,7 +24,7 @@
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapseMenu">
           <span class="icon-bar">Меню</span>
         </button>
-        <a class="navbar-brand" href="#">SkillFactory<i class="fa fa-circle"></i>Fullstack</a>
+        <a class="navbar-brand" href="/">SkillFactory<i class="fa fa-circle"></i>Fullstack</a>
       </div>
       <div class="collapse" id="collapseMenu" >
         <ul class="nav navbar-nav navbar-right">
@@ -40,7 +41,8 @@
       <div class="row centered">
         <div class="col-lg-12 col-lg-offset-2">
           <h1>Страница списка новостей</h1>
-          <h2>Наши рейтинги: </h2>
+          <br><br>
+          <h4>Наши рейтинги: </h4>
         </div>
       </div>
     </div>
@@ -67,13 +69,17 @@
       </div>
       <div class="col-lg-4">
         <i class="fa fa-reply" aria-hidden="true"></i>
-        <h4>Последний комментарий на сайте</h4>
-        <p> rr  </p>
+        <h4>Последний пост на сайте</h4>
+        <p>Последний пост № {{ latest_post.pk }} <br> опубликован: {{ latest_post.dataCreations }} </p>
+        <h4>Заголовок</h4>
+        <p>{{ latest_post.title }}</p>
+        <h4> Содержание поста :</h4>
+        {{ latest_post.text }}
         </p>
       </div>
     </div>
   </div>
-
+<br><br>
   <div class="container wb">
     <div class="row centered">
       <br><br>
@@ -130,15 +136,6 @@
           <h4>Курс SkillFactory - Fullstack разработчик на Python</h4>
           <p>SkillFactory — oнлайн-школа IT-профессий. Онлайн-курсы по Data Science, аналитике, программированию и менеджменту © 2023</p>
         </div>
-      </div>
-    </div>
-  </div>
-  <div id="f">
-    <div class="container">
-      <div class="row centered">
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-vk"></i></a>
       </div>
     </div>
   </div>
