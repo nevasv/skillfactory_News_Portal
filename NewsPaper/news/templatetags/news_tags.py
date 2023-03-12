@@ -22,12 +22,17 @@ def get_latest_post():
 
 
 @register.inclusion_tag('news/tag.html')
-def show_comments():
+def show_comments(sort="-rating", sort_param=0):
     """ Это функция включающего тега с декоратором inclusion_tag
       есть шаблон тегов в котором происходит работа с comments3, а затем
       в нужное место страницы вставляется это кусок кода {% show_comments %}
+      Дополнительный параметр sort_param в этом случае доступен для работы в tag.html
+      В основном шаблоне страницы уже сможем для изменения отображения
+      использовать одноименный тег sort_param
       """
+    if not sort:
+        comments3 = Comment.objects.all()
+    else:
+        comments3 = Comment.objects.all().order_by(sort)[:2]
 
-    comments3 = Comment.objects.all().order_by('-rating')[:2]
-
-    return {'comments3': comments3}
+    return {'comments3': comments3, 'sort_param': sort_param}
